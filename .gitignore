@@ -1,23 +1,54 @@
-# Windows thumbnail cache files
-Thumbs.db
-ehthumbs.db
-ehthumbs_vista.db
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+notes.md 
+notes/*
+notes.md
 
-# Folder config file
-Desktop.ini
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+# node-waf configuration
+.lock-wscript
 
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
+# Dependency directories
+node_modules/
+jspm_packages/
+node_modules
 
-# Windows shortcuts
-*.lnk
+# Optional npm cache directory
+.npm
 
-# =========================
-# Operating System Files
-# =========================
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env
+deploy
+
+#site specific config file
+config.toml
+
+#image resources
+*.psd
+*.ai
+*.bmp
+assets/
+mockups/
+
+#site archives
+archive/
+.sass-cache
+public/
