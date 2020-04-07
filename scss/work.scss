@@ -6,7 +6,13 @@ body.work main section {
     &:nth-child(even) {
         background-color: $accent;
     }
+    &.process-nav {
+        border-top: dotted $gray 4px;
+        border-bottom: dotted $gray 4px;
+        background: $white;
+    }
 
+    /*work page sections*/
     h1.text-pink {
         margin: -0.75rem 0 1.25rem;
     }
