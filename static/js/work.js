@@ -24,6 +24,11 @@ $(document).ready(function(){
 
             grids.push($grid);
         }
+        else{
+            $(el).prev().animate({ opacity: 0 }, 350, "swing", function () {
+                $(el).animate({ opacity: 1 }, 200, "swing");
+            });
+        }
     });
 
 
