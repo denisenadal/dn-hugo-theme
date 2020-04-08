@@ -1,5 +1,7 @@
 //overrides
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,300i,500,500i,700,700i,900,900i");
+//@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;600;800&family=Montserrat:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&family=Roboto:ital,wght@0,200;0,300;0,700;1,300;1,400;1,700&display=swap');
 
 $blue: #2184cf;
 $indigo: #4142c0;
@@ -24,7 +26,6 @@ $danger: $red;
 $light: #f8f9fa;
 $dark: #343a40;
 $accent: #b0f8ff;
-.bg-accent{background-color: $accent;}
 
 $overlay-light: rgba(255, 255, 255, 0.87);
 $overlay-dark: rgba(0, 0, 0, 0.87);
@@ -39,14 +40,14 @@ $breakpoint-xl: 1200px;
 
 $font-family-sans-serif: "Montserrat", sans-serif;
 
-$font-weight-light: 300;
-$font-weight-normal: 500;
+$font-weight-light: 200;
+$font-weight-normal: 300;
 $font-weight-bold: 700;
 $font-weight-black: 900;
 
-$font-weight-base: $font-weight-light;
+$font-weight-base: $font-weight-normal;
 $headings-font-weight: $font-weight-bold;
-// $headings-font-family:        null !default;
+$headings-font-family:"Montserrat", sans-serif;
 
 $display1-weight:             300 !default;
 $display2-weight:             300 !default;
@@ -70,6 +71,10 @@ $adjusted-vh: calc(100vh - 8rem);
 .text-white{color: $white!important;}
 .text-gray{color: $gray!important;}
 .text-gray-dark{color: $gray-dark!important;}
+.body-font {
+    font-family: $font-family-sans-serif!important;
+}
+.bg-accent{background-color: $accent;}
 
 .overlay-dark {
     background: $overlay-dark;
