@@ -1,11 +1,23 @@
+{{$page := .page}}
 <section class="process-nav meta-section">
-        <nav class="process">
-                {{range .}}
-                        <a href=""
-                           class="section-link">
-                              {{.}}
-                        
-                        </a>
+        {{with .nav.title}}
+        <h2 class="text-center">{{.}}</h2>
+        {{end}}
+        <nav class="process row wrapper">
+                {{range .nav.items}}
+                {{with .anchor}}<a href="#{{.}}"> {{end}}
+                        <figure class="section-link m-1 p-1">
+                                {{if .image}}
+                                <img src="{{$page.Permalink}}{{ .image | relURL}}"
+                                     alt="{{ .label}}">
+                                {{end}}
+                                <fig-caption>{{.label}}
+                                        {{with .desc}}
+                                        <span>{{.}}</span>
+                                        {{end}}
+                                </fig-caption>
+                        </figure>
+                        {{with .anchor}}</a>{{end}}
                 {{end}}
         </nav>
 </section>
