@@ -1,12 +1,12 @@
 {{$page := .page}}
-{{$sectionName := .sectionName }}
+{{$section := .section}}
 <section class="meta-section">
     <div class="wrapper container-fluid">
         <div class="spinner-border text-info"
              role="status">
             <span class="sr-only">Loading...</span>
         </div>
-        <div id="{{.sectionName}}-gallery"
+        <div id='{{trim .sectionName "0123456789-"}}-gallery'
              class="grid">
             {{$default_txt_width := "col-sm-12 col-md-12 col-lg-6"}}
             <div class="grid-item {{.section.Params.columns | default $default_txt_width}}">
@@ -19,7 +19,7 @@
             {{with .section.Params.images}}
             {{range sort . "params.order"}}
             <div class="{{.params.columns | default $default_img_width}} col grid-item">
-                {{partial "single-work/figure.html" (dict "page" $page "image" . "sectionName" $sectionName)}}
+                {{partial "single-work/figure.html" (dict "page" $page "image" . "section" $section)}}
             </div>
             {{end}}
             {{end}}

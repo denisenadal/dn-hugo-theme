@@ -1,18 +1,15 @@
 {{ define "main" }}
+{{$page := .}}
 <main>
 {{partial "single-work/page-header.html" . }}
 
 	<!-- for each section declared in the index.md, grab the associated resource file and add a section partial for it-->
-	{{if isset .Params "sections"}}
-		{{$page := .}}
-		{{range $index, $section := .Params.sections}}
-			{{ $resourceName := (printf "%s/00-%s.md" $section $section )}}
-			{{ with $page.Resources.GetMatch $resourceName}}
-				{{partial "single-work/page-section.html" (dict "page" $page "subsection" . "sectionName" $section ) }}
-			{{end}}
+	{{with $page.Resources.ByType "page"}}
+		{{range sort  . ".Name"}}
+		{{$sectionName := .Params.name | default (path.Base .File.Dir)}}
+		{{partial "single-work/page-section.html" (dict "page" $page "section" .  "sectionName" $sectionName ) }}
 		{{end}}
 	{{end}}
-
 
 	{{partial "image-modal.html"}}
 </main>

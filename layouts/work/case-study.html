@@ -6,7 +6,6 @@
     {{with $page.Params.page_nav}}
     {{partial "single-work/page-nav.html" (dict "page" $page "nav"  .) }}
     {{end}}
-
     <!-- for each section declared in the index.md, grab the associated resource file and add a section partial for it-->
     {{with $page.Resources.ByType "page"}}
         {{range sort  . ".Name"}}
