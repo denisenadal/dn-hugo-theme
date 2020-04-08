@@ -7,6 +7,26 @@ body.work main section {
         background-color: $accent;
     }
 
+    .section-link {
+        width: 200px;
+        height: 200px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 100%;
+        overflow: hidden;
+        position: relative;
+
+        &:not(:last-of-type):after {
+            content: "";
+            width: 2rem;
+            height: 5px;
+            background-color: black;
+            position: absolute;
+            top: 50%;
+            right: 0;
+        }
+    }
+
+    /*work page sections*/
     h1.text-pink {
         margin: -0.75rem 0 1.25rem;
     }
