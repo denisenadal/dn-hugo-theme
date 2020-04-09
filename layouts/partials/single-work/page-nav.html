@@ -4,7 +4,7 @@
         {{with .nav.title}}
         <h2 class="text-center">{{.}}</h2>
         {{end}}
-        <nav class="process row m-4 flex-wrap justify-content-center">
+        <nav class="process row m-4 justify-content-center flex-nowrap">
             {{range .nav.items}}
             <div class="section-link col">
                 {{with .anchor}}<a href="#{{.}}"> {{end}}

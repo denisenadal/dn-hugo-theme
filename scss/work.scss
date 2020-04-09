@@ -17,6 +17,20 @@ body.work main section {
         top: -4.5rem;
     }
 
+    .process.row {
+         @include media-breakpoint-down(sm) {
+        transform: scale(.25);
+         }
+
+          @include media-breakpoint-down(md) {
+        transform: scale(.5);
+         }
+
+         @include media-breakpoint-down(lg) {
+        transform: scale(.75);
+         }
+    }
+
     $block-size: 180px;
 
     .section-link {
@@ -24,7 +38,6 @@ body.work main section {
         overflow: hidden;
         min-width: +($block-size + 24px);
         padding: 0 .5rem;
-
 
         a {
             display: inline-block;
