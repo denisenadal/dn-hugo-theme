@@ -4,9 +4,9 @@
         {{with .nav.title}}
         <h2 class="text-center">{{.}}</h2>
         {{end}}
-        <nav class="process row m-4 justify-content-center flex-nowrap">
+        <nav class="process row">
             {{range .nav.items}}
-            <div class="section-link col">
+            <div class="section-link col-3">
                 {{with .anchor}}<a href="#{{.}}"> {{end}}
                     <figure class="d-flex flex-column justify-content-center">
                         {{if .image}}
