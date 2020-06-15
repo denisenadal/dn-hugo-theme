@@ -15,6 +15,7 @@
 			{{ else }}
 			<time class="h6 mb-3 py-1 d-block">{{ .Date.Format "Jan 2006" }}</time>
 			{{ end }}
+			{{if .Site.Data.tags}}
 			<div class="tags my-2">
 			
 				{{$masterTags := .Site.Data.tags}}
@@ -26,6 +27,7 @@
 				{{ end }}
 				{{end}}
 			</div>
+			{{end}}
 			<div class="card-text">
 				{{ .Summary }}
 				{{ if .Truncated }}

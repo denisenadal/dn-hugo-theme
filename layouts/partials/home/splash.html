@@ -1,14 +1,13 @@
-{{ $splash := .Site.Data.splash }}
 {{ $social := .Site.Data.social }}
 <aside id="splash"
          class="d-flex flex-column justify-content-center align-items-start">
-
-        <img src="{{.Site.BaseURL}}/images/{{ $splash.displayPicture }}"
+        {{ if .Site.Params.displayPicture }}
+        <img src="{{.Site.BaseURL}}{{.Site.Params.displayPicture}}"
              class="rounded-circle mb-3 bio-img"
              width="160px">
-
+        {{ end }}
         <h2 class="heading">
-            <span class="display-4">{{ $splash.title }}</span>
+            <span class="display-4">{{ .Site.Data.author }}</span>
             <br>
             {{with .Site.Params.subtitle}}
             <span class="text-white highlight px-4 py-1">{{ . }}</span>{{end}}
