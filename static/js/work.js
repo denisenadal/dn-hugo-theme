@@ -58,11 +58,13 @@ function imagesLoadedHandler($grid ){
 }
 
 function modalHandler(link){
-    var img = $(link).find('figure').clone();
-    var title = $(img).attr('data-title')
+    var src = $(link).find('img').attr('src');
+    var cap = $(link).find('figcaption').text();
+    var title =  $('#work-title').text();
     var imgModal = $('.image-modal');
-    imgModal.find('.modal-body > *').remove();
-    imgModal.find('.modal-body').append(img)
+    imgModal.find('.modal-image').attr('src', src);
+    imgModal.find('a').attr('href', src);
+    imgModal.find('.caption').text(cap);
     imgModal.find('.modal-title').text(title);
     imgModal.fadeIn(350,'linear');
 }
