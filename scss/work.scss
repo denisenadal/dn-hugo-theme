@@ -17,6 +17,13 @@ body.work main section {
         margin: -0.75rem 0 1.25rem;
     }
 
+    &.content-section {
+        h3 {
+            margin-top: 2rem;
+            font-weight: lighter;
+        }
+    }
+
     .spinner-border {
         margin: 6rem auto;
         display: block;
