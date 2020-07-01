@@ -3,6 +3,7 @@ $(document).ready(function(){
     var grids = [];
 
     $('.grid').each(function(i, el){
+        //if galleries exist, for each gallery do all the prep
         if ( ($(el).find('.grid-item')).length > 1 ){
 
             var $grid = $(el).masonry({
@@ -14,7 +15,7 @@ $(document).ready(function(){
                 initLayout: false,
             });
 
-           
+           //when images are loaded, init the grid
             $grid.imagesLoaded().done(function () {
                imagesLoadedHandler($grid);
             })
@@ -24,6 +25,7 @@ $(document).ready(function(){
 
             grids.push($grid);
         }
+        //if there's no gallery, just show the content
         else{
             $(el).prev().animate({ opacity: 0 }, 350, "swing", function () {
                 $(el).animate({ opacity: 1 }, 200, "swing");
@@ -32,15 +34,18 @@ $(document).ready(function(){
     });
 
 
+    //open modal
     $('.image-modal-link').click(function(event){
         event.preventDefault();
         modalHandler(event.currentTarget);
     });
 
+    //click outside of modal or exit button closes modal
     $('.image-modal.overlay-light, .modal .close').click(function(event){
         $('.image-modal').fadeOut(350, 'linear');
     });
 
+    //close modal on escape key
     $(document).keyup(function (e) {
         if (e.keyCode === 27) $('.image-modal').fadeOut(350, 'linear');   // esc
     });
@@ -50,6 +55,7 @@ $(document).ready(function(){
     });
 });
 
+//init grid, fade out spinner and fade in grid
 function imagesLoadedHandler($grid ){
     $grid.masonry('layout');
     $grid.prev().animate({ opacity: 0 }, 350, "swing", function () {
@@ -57,6 +63,7 @@ function imagesLoadedHandler($grid ){
     });
 }
 
+//get content from clicked link, and populate modal
 function modalHandler(link){
     var src = $(link).find('img').attr('src');
     var cap = $(link).find('figcaption').text();
