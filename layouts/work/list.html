@@ -7,7 +7,13 @@
             {{ with .Content }}<div>{{ . }}</div>{{ end }}
             {{ end }}
 
-            {{ $pages :=  where (where .Site.Pages "Section" "work") ".Title" "not in" (slice "Work" "Works") }}
+            {{ $pages :=  (where .Site.RegularPages "Section" "work")  }}
+            {{ if (templates.Exists "partials/worksFilter.html") }}
+                {{ partial "worksFilter.html" . }}
+                {{$filter := .Scratch.Get "filter"}}
+                {{ $pages = $pages | intersect ( .Site.RegularPages.RelatedTo ( $filter  )) }}
+            {{ end }}
+
             {{ $sorted := $pages.ByWeight.Reverse }}
             {{ $paginator := .Paginate $sorted }}
 

@@ -10,6 +10,9 @@
 		{{ partial "home/experience.html" . }}
 	{{end}}
 	{{ if gt (len (where .Data.Pages "Type" "work")) 0 }}
+		{{ if (templates.Exists "partials/worksFilter.html")  }}
+			{{ partial "worksFilter.html" . }}
+		{{ end }}
 		{{ partial "works-gallery.html" . }}
 	{{end}}
 	{{ if gt (len (where .Data.Pages "Type" "blog")) 0 }}

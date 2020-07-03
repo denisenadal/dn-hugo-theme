@@ -1,9 +1,12 @@
 <div id="work" class="meta-section bg-accent">
     <section  class="">
         <h2 class="heading">Work </h2>
-        
         <div class="row">
-            {{$works := where (where .Site.Pages "Type" "work") ".Title" "not in" (slice "Work" "Works")}}
+            {{$works := (where .Site.RegularPages "Type" "work")}}
+            {{if ne (.Scratch.Get "filter") nil}}
+                {{$filter := .Scratch.Get "filter"}}
+                {{ $works = $works | intersect ( .Site.RegularPages.RelatedTo ( $filter  )) }}
+            {{end}}
             {{ range first 9 (sort $works ".Params.weight" "desc") }}
             <div class="col-lg-4 col-md-4 col-12 mb-3 d-flex">
                 <div class="bg-white p-4 shadow-sm d-flex flex-column flex-fill">
