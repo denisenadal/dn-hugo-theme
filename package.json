@@ -12,10 +12,6 @@
   "scripts": {
     "sass:build": "sass scss/custom.scss:static/css/custom.css --style=compressed --no-source-map",
     "sass:serve": "sass css/custom.scss:static/css/custom.css --color --embed-sources --watch",
-    "hugo:serve": "hugo server",
-    "start": "npm run clean && concurrently \"npm run hugo:serve\" \"npm run sass:serve\"",
-    "build": "npm run sass:build & hugo",
-    "clean": "rm -rf public",
     "changelog": "auto-changelog && git add CHANGELOG.md",
     "version": "auto-changelog && git add CHANGELOG.md",
     "postversion": "git push && git push --tags"
