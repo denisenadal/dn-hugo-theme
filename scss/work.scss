@@ -25,6 +25,10 @@ body.work main section {
         &:hover {
             color: $primary;
         }
+        
+        &.btn {
+            color: $white;
+        }
     }
 
     &.content-section {

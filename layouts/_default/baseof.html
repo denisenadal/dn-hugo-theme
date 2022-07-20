@@ -5,14 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	{{ $title1 := print .Site.Title " //"}}
 	{{$title2 := ""}}
 	{{if ne .Page.Type "page"}}
 	{{ $title2 = print .Page.Type " - "}}
 	{{else}}
 	{{ $title2 = print .Site.Params.subtitle }}
 	{{end}}
-	<title>{{ $title1 }} {{$title2}} {{.Page.Title }}</title>
+	<title>{{ .Site.Title }} ☆ {{$title2}} {{if ne .Page.Title "Home"}}{{.Page.Title }}{{end}}</title>
 	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
