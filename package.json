@@ -1,0 +1,40 @@
+{
+  "name": "dn-hugo-theme",
+  "description": "1st Hugo project, based on Vimux's blank starter theme and the paid version of the Hugo UI-Lite theme by Arvind",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "auto-changelog": "^2.4.0",
+    "bootstrap": "^4.6.2",
+    "concurrently": "^7.3.0",
+    "sass": "^1.53.0"
+  },
+  "scripts": {
+    "sass:build": "sass scss/custom.scss:static/css/custom.css --style=compressed --no-source-map",
+    "sass:serve": "sass css/custom.scss:static/css/custom.css --color --embed-sources --watch",
+    "hugo:serve": "hugo server",
+    "start": "npm run clean && concurrently \"npm run hugo:serve\" \"npm run sass:serve\"",
+    "build": "npm run sass:build & hugo",
+    "clean": "rm -rf public",
+    "changelog": "auto-changelog && git add CHANGELOG.md",
+    "version": "auto-changelog && git add CHANGELOG.md",
+    "postversion": "git push && git push --tags"
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "changelog-template.hbs",
+    "ignoreCommitPattern": "^Merge",
+    "releaseSummary": true,
+    "package": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denisenadal/dn-hugo-theme.git"
+  },
+  "author": "Denise Nadal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denisenadal/dn-hugo-theme/issues"
+  },
+  "homepage": "https://github.com/denisenadal/dn-hugo-theme#readme"
+}
