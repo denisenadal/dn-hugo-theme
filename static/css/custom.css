@@ -9488,6 +9488,8 @@ main.home .meta-section,
 
 .highlight-text {
   background: linear-gradient(292deg, rgb(91, 11, 179) 0%, rgb(33, 132, 207) 22%, rgb(0, 181, 218) 33%, rgb(210, 233, 27) 60%, rgb(236, 226, 6) 64%, rgb(232, 206, 10) 68%, rgb(255, 0, 156) 96%);
+  background-size: 100% 30px;
+  background-repeat: no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -9591,6 +9593,10 @@ main.error .error-emoji {
   width: 100%;
   background-size: cover;
   background-position: center;
+}
+
+#contact .btn-primary {
+  color: #fefefe;
 }
 
 body.work main section {

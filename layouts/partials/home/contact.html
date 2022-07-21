@@ -12,11 +12,11 @@
         <div class="col-12 col-md-6">
             <div class="contact-form p-4 shadow">
                 <h2 class="heading mb-3 h1">Contact {{ $about.name }}</h2>
-                {{ if and (.Site.Params.formspreeFormID) (.Site.Params.recaptchaSiteKey)}}
+                {{ if and (os.Getenv "FORMSPREE_ID") (os.Getenv "FORMSPREE_RECAPTCHA")  }}
          
                 <form id="my-form"
                       class="clearfix"
-                      action="https://formspree.io/{{.Site.Params.formspreeFormID}}"
+                      action="https://formspree.io/{{ os.Getenv "FORMSPREE_ID" }}"
                       method="POST">
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -41,7 +41,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <div class="g-recaptcha"
-                                 data-sitekey="{{.Site.Params.recaptchaSiteKey}}"
+                                 data-sitekey="{{ os.Getenv "FORMSPREE_RECAPTCHA" }}"
                                  data-callback="onRepSuccess"
                                  data-error-callback="error"
                                  data-expired-callback="error"></div>

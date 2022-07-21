@@ -222,8 +222,11 @@ main.home .meta-section,
 }
 .highlight-text {
     background: $rainbow-gradient;
+    background-size: 100% 30px;
+    background-repeat: no-repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
 }
 .highlight-text-link:hover {
     background: $rainbow-gradient;
