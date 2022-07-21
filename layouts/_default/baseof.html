@@ -21,18 +21,18 @@
     <meta name="description" content="{{ if .Page.Description }}{{.Page.Description}}{{ else }}{{.Site.Params.description}}{{ end }}" />
     <meta property="og:type" content="website" />
     
-<meta property="og:url" content="{{.Page.Permalink}}" />
+    <meta property="og:url" content="{{.Page.Permalink}}" />
     <meta property="og:title" content="{{ .Site.Title }} ☆ {{$title2}} {{if ne .Page.Title "Home"}}{{.Page.Title }}{{end}}" />
     <meta property="og:image" content="{{ .Page.Permalink }}{{ if .Page.Params.image }}{{.Page.Params.image.name}}{{ else }}{{.Site.Params.image}}{{ end }}" />
     <meta property="og:site_name" content="{{.Site.Title}}" />
     <meta property="og:description" content="{{ if .Page.Description }}{{.Page.Description}}{{ else }}{{.Site.Params.description}}{{ end }}" />
-<link rel="canonical" href="{{.Page.Permalink}}" />
+    <link rel="canonical" href="{{.Page.Permalink}}" />
     <meta content="{{ if .Page.Description }}{{.Page.Description}}{{ else }}{{.Site.Params.description}}{{ end }}"/>
 	
 	<link rel="icon" href="{{ .Site.BaseURL }}images/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico" type="image/x-icon">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"  crossorigin="anonymous">
-
+    
 	<link rel="stylesheet" href='{{ "css/custom.css" | relURL }}'>
 	{{ with .OutputFormats.Get "RSS" -}}
 		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}

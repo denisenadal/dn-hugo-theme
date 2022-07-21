@@ -136,8 +136,8 @@ $adjusted-vh: calc(100vh - 8rem);
     opacity: 0.7;
 }
 
-@import "../node_modules/bootstrap/scss/bootstrap";
-@import "global.scss";
+@import "vendor/bootstrap/scss/bootstrap";
+@import "global";
 
-@import "home.scss";
-@import "work.scss";
+@import "home";
+@import "work";
