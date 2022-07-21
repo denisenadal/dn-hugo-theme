@@ -10,8 +10,8 @@
     "sass": "^1.53.0"
   },
   "scripts": {
-    "sass:build": "sass scss/custom.scss:static/css/custom.css --style=compressed --no-source-map",
-    "sass:serve": "sass css/custom.scss:static/css/custom.css --color --embed-sources --watch",
+    "sass:build": "rsync -aq node_modules/bootstrap scss/vendor/bootstrap && sass scss/custom.scss:static/css/custom.css --style=compressed --no-source-map",
+    "sass:serve": "rsync -aq node_modules/bootstrap scss/vendor/bootstrap &&sass css/custom.scss:static/css/custom.css --color --embed-sources --watch",
     "changelog": "auto-changelog && git add CHANGELOG.md",
     "version": "auto-changelog && git add CHANGELOG.md",
     "postversion": "git push && git push --tags"
