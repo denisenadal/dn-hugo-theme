@@ -1,68 +1,57 @@
 <!DOCTYPE html>
 <html lang='{{ .Site.LanguageCode | default "en-us" }}'>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	{{$title2 := ""}}
-	{{if ne .Page.Type "page"}}
-	{{ $title2 = print .Page.Type " - "}}
-	{{else}}
-	{{ $title2 = print .Site.Params.subtitle }}
-	{{end}}
-	<title>{{ .Site.Title }} ☆ {{$title2}} {{if ne .Page.Title "Home"}}{{.Page.Title }}{{end}}</title>
-	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
-	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> {{$title2 := ""}} {{if ne .Page.Type "page"}} {{ $title2 = print .Page.Type " - "}} {{else}} {{ $title2 = print .Site.Params.subtitle }} {{end}}
+    <title>{{ .Site.Title }} ☆ {{$title2}} {{if ne .Page.Title "Home"}}{{.Page.Title }}{{end}}</title>
+    {{ with .Site.Params.description }}
+    <meta name="description" content="{{ . }}">{{ end }} {{ with .Site.Params.author }}
+    <meta name="author" content="{{ . }}">{{ end }}
 
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="keywords" content="{{ if .Page.Keywords }}{{.Page.Keywords}}{{ else }}{{.Site.Params.keywords}}{{ end }}" />
     <meta name="description" content="{{ if .Page.Description }}{{.Page.Description}}{{ else }}{{.Site.Params.description}}{{ end }}" />
     <meta property="og:type" content="website" />
-    
+
     <meta property="og:url" content="{{.Page.Permalink}}" />
-    <meta property="og:title" content="{{ .Site.Title }} ☆ {{$title2}} {{if ne .Page.Title "Home"}}{{.Page.Title }}{{end}}" />
-    <meta property="og:image" content="{{ .Page.Permalink }}{{ if .Page.Params.image }}{{.Page.Params.image.name}}{{ else }}{{.Site.Params.image}}{{ end }}" />
+    <meta property="og:title" content="{{ .Site.Title }} ☆ {{$title2}} {{if ne .Page.Title " Home"}}{{.Page.Title }}{{end}}" />
+    <meta property="og:image" content="{{ if .Page.Params.image }}{{ .Page.Permalink }}{{.Page.Params.image.name}}{{ else }}{{ .Site.BaseURL }}{{.Site.Params.image}}{{ end }}" />
     <meta property="og:site_name" content="{{.Site.Title}}" />
     <meta property="og:description" content="{{ if .Page.Description }}{{.Page.Description}}{{ else }}{{.Site.Params.description}}{{ end }}" />
     <link rel="canonical" href="{{.Page.Permalink}}" />
-    <meta content="{{ if .Page.Description }}{{.Page.Description}}{{ else }}{{.Site.Params.description}}{{ end }}"/>
-	
-	<link rel="icon" href="{{ .Site.BaseURL }}images/favicon.ico" type="image/x-icon">
+    <meta content="{{ if .Page.Description }}{{.Page.Description}}{{ else }}{{.Site.Params.description}}{{ end }}" />
+
+    <link rel="icon" href="{{ .Site.BaseURL }}images/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico" type="image/x-icon">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"  crossorigin="anonymous">
-    
-	<link rel="stylesheet" href='{{ "css/custom.css" | relURL }}'>
-	{{ with .OutputFormats.Get "RSS" -}}
-		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
-	{{end }}
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&family=Roboto:ital,wght@0,200;0,300;0,700;1,300;1,400;1,700&display=swap"  as="style">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	{{ template "_internal/google_analytics.html" . }}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href='{{ "css/custom.css" | relURL }}'>
+    {{ with .OutputFormats.Get "RSS" -}} 
+    {{ printf ` <link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+    {{end }} 
+    {{ template "_internal/google_analytics.html" . }}
 </head>
-{{ $class:= "generic" }}
-{{if .IsHome}}
-{{$class = "home"}}
-{{else }}
-{{$class = .Page.Type }}
-{{end}}
-<body class="{{ $class }}">
-	{{ partial "header" . }}
-	<div class="body-offset"></div>
-	{{ block "main" . }}
-		<main>{{.Content}}</main>
-	{{ end }}
-	{{ partial "footer" . }}
+{{ $class:= "generic" }} {{if .IsHome}} {{$class = "home"}} {{else }} {{$class = .Page.Type }} {{end}}
 
-<script src='{{ "js/main.js" | relURL }}'></script>
-{{if .IsHome}}
-<script src='{{ "js/contact.js" | relURL }}'></script>
-{{end}}
-{{if eq .Page.Type "work" }}
-<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script><script src='{{ "js/work.js" | relURL }}'></script>
-{{end}}
+<body class="{{ $class }} ">
+    {{ partial "header" . }}
+    <div class="body-offset"></div>
+    {{ block "main" . }}
+    <main>{{.Content}}</main>
+    {{ end }} {{ partial "footer" . }}
+    <script src='{{ "js/main.js" | relURL }}'></script>
+    {{if .IsHome}}
+    <script defer src='{{ "js/contact.js" | relURL }}'></script>
+    {{end}} {{if eq .Page.Type "work" }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script defer src='{{ "js/work.js" | relURL }}'></script>
+    {{end}}
 </body>
-</html>
 
+</html>

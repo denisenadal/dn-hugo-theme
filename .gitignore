@@ -21,7 +21,7 @@ pids
 node_modules/
 jspm_packages/
 node_modules
-scss/vendor/
+scss/vendor/*
 
 # Optional npm cache directory
 .npm
@@ -57,3 +57,6 @@ archive/
 .sass-cache
 public/
 static/css/custom.css.map
+
+#vscode
+.vscode/
