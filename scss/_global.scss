@@ -107,7 +107,7 @@ main.home .meta-section,
 
 .nav-links {
     align-items: stretch;
-    height: calc(100vh - 8rem);
+    height: calc(100vh - 4rem);
     display: none;
 
     .nav-link {
@@ -155,7 +155,6 @@ main.home .meta-section,
             pointer-events: initial;
             border: none;
             font-size: inherit;
-            font-weight: inherit;
             flex: 0;
         }
     }
@@ -222,7 +221,7 @@ main.home .meta-section,
 }
 .highlight-text {
     background: $rainbow-gradient;
-    background-size: 100% 30px;
+    // background-size: 100% 30px;
     background-repeat: no-repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

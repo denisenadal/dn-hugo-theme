@@ -1,8 +1,6 @@
 //overrides
 //@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;600;800&family=Montserrat:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&family=Roboto:ital,wght@0,200;0,300;0,700;1,300;1,400;1,700&display=swap');
-
 $blue: #2184cf;
 $indigo: #4142c0;
 $purple: #5b0bb3;
@@ -16,7 +14,6 @@ $cyan: #00b5da;
 $white: #fefefe;
 $gray: #c6c5d3;
 $gray-dark: #343a40;
-
 $primary: $teal;
 $secondary: $pink;
 $success: $green;
@@ -30,88 +27,92 @@ $accent: #e9fbfb;
     background-color: $accent;
 }
 
-$overlay-light: rgba(255, 255, 255, 0.87);
-$overlay-dark: rgba(211, 79, 79, 0.87);
-$rainbow-gradient: linear-gradient(
+$overlay-light: rgba(255,255,255,0.87);
+$overlay-dark: rgba(211,79,79,0.87);
+$rainbow-gradient: linear-gradient( 292deg,
+rgba(91, 11, 179, 1) 0%,
+rgba(33, 132, 207, 1) 22%,
+rgba(0, 181, 218, 1) 33%,
+rgba(210, 233, 27, 1) 60%,
+rgba(236, 226, 6, 1) 64%,
+rgba(232, 206, 10, 1) 68%,
+rgba(255, 0, 156, 1) 96%);
+$brand-gradient: linear-gradient( 
     292deg,
-    rgba(91, 11, 179, 1) 0%,
-    rgba(33, 132, 207, 1) 22%,
-    rgba(0, 181, 218, 1) 33%,
-    rgba(210, 233, 27, 1) 60%,
-    rgba(236, 226, 6, 1) 64%,
-    rgba(232, 206, 10, 1) 68%,
-    rgba(255, 0, 156, 1) 96%
-);
-$brand-gradient: linear-gradient(
-    292deg,
-    rgba(19, 206, 200, 1) 0%,
-    rgba(35, 113, 179, 1) 36%,
-    rgba(22, 73, 196, 1) 54%,
-    rgba(255, 0, 156, 1) 96%
-);
-
+rgba(19, 206, 200, 1) 0%,
+rgba(35, 113, 179, 1) 36%,
+rgba(22, 73, 196, 1) 54%,
+rgba(255, 0, 156, 1) 96%);
 $breakpoint-xs: 0;
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
-
-$font-family-sans-serif: "Montserrat", sans-serif;
-
+$font-family-sans-serif: "Montserrat",
+sans-serif;
 $font-weight-light: 200;
 $font-weight-normal: 300;
 $font-weight-bold: 700;
 $font-weight-black: 900;
-
 $font-weight-base: $font-weight-normal;
 $headings-font-weight: $font-weight-bold;
-$headings-font-family:"Montserrat", sans-serif;
-
+$headings-font-family:"Montserrat",
+sans-serif;
 $display1-weight: 300 !default;
 $display2-weight: 300 !default;
 $display3-weight: 700 !default;
 $display4-weight: 700 !default;
-
-$animation-rate: cubic-bezier(0.23, 1, 0.32, 1);
+$animation-rate: cubic-bezier(0.23,1,0.32,1);
 $default-animation: all 300ms $animation-rate;
 $adjusted-vh: calc(100vh - 8rem);
-
 .text-blue {
     color: $blue !important;
 }
+
 .text-indigo {
     color: $indigo !important;
 }
+
 .text-purple {
     color: $purple !important;
 }
+
 .text-pink {
     color: $pink !important;
 }
+
 .text-red {
     color: $red !important;
 }
+
 .text-orange {
     color: $orange !important;
 }
+
 .text-yellow {
     color: $yellow !important;
 }
+
 .text-green {
     color: $green !important;
 }
+
 .text-teal {
     color: $teal !important;
 }
+
 .text-cyan {
     color: $cyan !important;
 }
+
 .text-white {
     color: $white !important;
 }
+
 .text-gray {
     color: $gray !important;
 }
+
 .text-gray-dark {
     color: $gray-dark !important;
 }
@@ -119,6 +120,7 @@ $adjusted-vh: calc(100vh - 8rem);
 .overlay-dark {
     background: $overlay-dark;
 }
+
 .overlay-light {
     background: $overlay-light;
 }
@@ -136,8 +138,7 @@ $adjusted-vh: calc(100vh - 8rem);
     opacity: 0.7;
 }
 
-@import "vendor/bootstrap/scss/bootstrap";
+@import "vendor/bootstrap/scss/bootstrap.scss";
 @import "global";
-
 @import "home";
 @import "work";

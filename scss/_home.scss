@@ -1,5 +1,8 @@
 //========== splash ============//
 #splash {
+    .heading {
+        line-height: 1.45;
+    }
     a.text-dark:hover {
         color: $gray-300 !important;
     }
