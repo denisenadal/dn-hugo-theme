@@ -2,9 +2,6 @@
 
 <div id="contact"
      class="meta-section">
-    <script src="https://www.google.com/recaptcha/api.js"
-            async
-            defer></script>
     <section class="row">
         <div class="col-12 col-md-6">
             {{ partial "home/splash.html" . }}
@@ -20,22 +17,22 @@
                       method="POST">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Name</label>
+                            <label for="name">Name</label>
                             <input type="text"
                                    class="form-control"
-                                   name="name" />
+                                   name="name" id="name" />
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Email:</label>
+                            <label for="email">Email:</label>
                             <input type="email"
                                    class="form-control"
-                                   name="email" />
+                                   name="email" id="email/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Message:</label>
+                        <label for=""message>Message:</label>
                         <textarea class="form-control"
-                                  name="message"></textarea>
+                                  name="message" id="message"></textarea>
                     </div>
 
                     <div class="form-row">

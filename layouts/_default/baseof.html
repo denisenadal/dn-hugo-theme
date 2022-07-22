@@ -45,6 +45,7 @@
     {{ end }} {{ partial "footer" . }}
     <script src='{{ "js/main.js" | relURL }}'></script>
     {{if .IsHome}}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script defer src='{{ "js/contact.js" | relURL }}'></script>
     {{end}} {{if eq .Page.Type "work" }}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
