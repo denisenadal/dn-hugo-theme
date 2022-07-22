@@ -23,6 +23,7 @@
 #timeline {
     position: relative;
     transition: $default-animation;
+    padding-left: 2rem;
 
     .timeline-item {
         border-left: 3px solid $black;

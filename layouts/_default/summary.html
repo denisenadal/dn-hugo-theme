@@ -22,7 +22,7 @@
 			
 				{{ range $tag := .Params.tags }}
 				{{range $tagMeta := where $masterTags "title" . }}
-				<a class="btn btn-{{$tagMeta.color}} btn-sm d-inline-block mr-1"
+				<a class="btn btn-{{$tagMeta.color}} btn-sm d-inline-block mr-1 mb-2"
 				   href='{{ "/tags/" | relLangURL }}{{ $tagMeta.title | urlize }}'>{{ $tagMeta.title }}</a>
 				{{ end }}
 				{{end}}

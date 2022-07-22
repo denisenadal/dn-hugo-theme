@@ -2,9 +2,9 @@
 {{$colors := .Site.Params.colors}}
 <!-- this section copied from UI-Lite theme-->
 <div class="meta-section">
-    <section id="experience">
-        <h2>{{ $experience.title }}</h2>
-        <div id="timeline">
+    <section id="experience" class="row">
+        <h2 class="col-12">{{ $experience.title }}</h2>
+        <div id="timeline" class="col-12">
             {{ range $index, $element := $experience.experience }}
             <div class="timeline-item d-flex d-column position-relative">
                 <i class="timeline-icon fa fa-circle fa-2x text-{{index $colors $index}}"
