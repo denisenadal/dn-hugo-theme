@@ -95,7 +95,7 @@ main.home .meta-section,
 
 //heading & nav layout
 .navbar {
-    background: $white;
+    background: map-get($colors,"white");
 }
 .navbar,
 .nav-links {
@@ -183,7 +183,7 @@ main.home .meta-section,
     }
 
     .hamburger-inner.animate {
-        background: $white;
+        background: map-get($colors,"white");
     }
     .hamburger-inner:before,
     .hamburger-inner:after {

@@ -90,7 +90,7 @@
 
 #work {
     .featuredImage {
-        background-color: $gray;
+        background-color: map.get($colors,"gray");
         min-height: 180px;
         width: 100%;
         background-size: cover;

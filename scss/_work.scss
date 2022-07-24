@@ -9,8 +9,8 @@ body.work main section {
         border-bottom: solid 1px #e7f0f0;
     }
     &.process-nav {
-        border-top: dotted $gray 4px;
-        border-bottom: dotted $gray 4px;
+        border-top: dotted map.get($colors,"gray") 4px;
+        border-bottom: dotted map.get($colors,"gray") 4px;
         background: $white;
     }
 
@@ -73,7 +73,7 @@ body.work main section {
 
 hr.content-divider {
     margin: 2rem 1rem 3rem;
-    border-top: dotted $gray 4px;
+    border-top: dotted map.get($colors,"gray") 4px;
 }
 
 .bg-accent hr.content-divider {
