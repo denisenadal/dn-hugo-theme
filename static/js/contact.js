@@ -52,3 +52,17 @@ function ajax(method, url, data, success, error) {
     };
     xhr.send(data);
 }
+
+// Function that loads recaptcha on form input focus
+function reCaptchaOnFocus() {
+    var head = document.getElementsByTagName('head')[0]
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+    script.src = 'https://www.google.com/recaptcha/api.js'
+    head.appendChild(script);
+
+    // remove focus to avoid js error:
+    document.getElementById('name').removeEventListener('focus', reCaptchaOnFocus)
+  };
+  // add initial event listener to the form inputs
+  document.getElementById('name').addEventListener('focus', reCaptchaOnFocus, false);
